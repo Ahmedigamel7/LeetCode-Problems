@@ -1,25 +1,25 @@
 class Solution {
 public:
-    void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
+    void merge(vector<int>& nums1, int m, vector<int>& nums2, int n)
+    {
    
-        vector<int>concat; int i = 0, j = 0;
+    int i = m - 1, j = n - 1, endOfN1 = m + n - 1;
 
-    for (; i < m&& j<n; )
-    { 
-        if (nums1[i] <= nums2[j])
-        {
-            concat.push_back(nums1[i++]);
-        }else
-        {
-           concat.push_back( nums2[j++]);
-        }
-    }
-    while (j<n)concat.push_back(nums2[j++]);
-    while (i<m)concat.push_back(nums1[i++]);
-    nums1.clear();
+    for (; i >= 0 && j>=0; )
+    {
+        if (nums1[i] > nums2[j])
+            nums1[endOfN1--] = nums1[i--];
+        else
+            nums1[endOfN1--] = nums2[j--];
 
-    for (auto i : concat)
-        nums1.push_back(i);
+
     }
+    while (j >= 0)
+    {
+        nums1[endOfN1--] = nums2[j--];
+    }
+    
+    }
+    
 };  
 
