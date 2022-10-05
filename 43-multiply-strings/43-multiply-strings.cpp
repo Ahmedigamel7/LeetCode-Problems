@@ -1,5 +1,4 @@
 class Solution {
-private:
     // Function to add two strings.
     vector<int> addStrings(vector<int> num1, vector<int>& num2) {
         vector<int> ans;
